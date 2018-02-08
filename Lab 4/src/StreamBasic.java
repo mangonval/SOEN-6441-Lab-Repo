@@ -4,6 +4,8 @@ import java.util.stream.*;
 import static java.util.Comparator.comparing;
 import static java.util.stream.Collectors.toList;
 
+import java.awt.Menu;
+
 
 
 public class StreamBasic {
@@ -16,6 +18,15 @@ public class StreamBasic {
 
         // Java 8
         getLowCaloricDishesNamesInJava8(Dish.menu).forEach(System.out::println);
+        
+        List<Dish> firstTwoMeatDishes = Dish.menu.stream()
+        		.filter(d -> d.isVegetarian() == false)
+        		.limit(2)
+        		.collect(toList());
+        
+        firstTwoMeatDishes.forEach(System.out::println);
+        		
+        
 
     }
 
